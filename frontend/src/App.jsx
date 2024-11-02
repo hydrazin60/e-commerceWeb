@@ -14,29 +14,58 @@ import ShoppingHome from "./pages/shopping/Home";
 import ShoppinListing from "./pages/shopping/Listing";
 import ShoppingCheckout from "./pages/shopping/Checkout";
 import UserAccount from "./pages/shopping/Account";
-
+import CheckAuth from "./components/common/CheckAuth";
+import UnAuthPage from "./pages/unAuthPage";
 export default function App() {
+  const isAuthenticated = true;
+  const user = {
+    name: "John Doe",
+    email: "Z5i2z@example.com",
+    role: "user",
+  };
   return (
     <BrowserRouter>
       <div className="flex flex-col overflow-hidden bg-white">
         <Routes>
-          <Route path="/auth" element={<Authlayout />}>
+          <Route
+            path="/auth"
+            element={
+              <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+                <Authlayout />
+              </CheckAuth>
+            }
+          >
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
-          <Route path="/admin" element={<Adminlayaout />}>
+          <Route
+            path="/admin"
+            element={
+              <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+                <Adminlayaout />
+              </CheckAuth>
+            }
+          >
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="product" element={<AdminProduct />} />
             <Route path="orders" element={<AdminOrders />} />
             <Route path="features" element={<AdminFeatures />} />
           </Route>
-          <Route path="/shop" element={<Shoppinglayaout />}>
+          <Route
+            path="/shop"
+            element={
+              <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+                <Shoppinglayaout />
+              </CheckAuth>
+            }
+          >
             <Route path="home" element={<ShoppingHome />} />
             <Route path="listing" element={<ShoppinListing />} />
             <Route path="checkout" element={<ShoppingCheckout />} />
             <Route path="account" element={<UserAccount />} />
           </Route>
           <Route path="*" element={<NotFound />} />
+          <Route path="/unAuthrized" element={<UnAuthPage />} />
         </Routes>
       </div>
     </BrowserRouter>
