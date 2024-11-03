@@ -17,12 +17,8 @@ import UserAccount from "./pages/shopping/Account";
 import CheckAuth from "./components/common/CheckAuth";
 import UnAuthPage from "./pages/unAuthPage";
 export default function App() {
-  const isAuthenticated = true;
-  const user = {
-    name: "John Doe",
-    email: "Z5i2z@example.com",
-    role: "user",
-  };
+  const isAuthenticated = false;
+  const user = null;
   return (
     <BrowserRouter>
       <div className="flex flex-col overflow-hidden bg-white">
