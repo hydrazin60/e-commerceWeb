@@ -18,7 +18,7 @@ export default function Login() {
         </h1>
         <p className="mt-2"> Don't have an account ?</p>
         <Link
-          className="font-medium  ml-2 text-primary hover:underline text-blue-500"
+          className="font-medium  ml-2 text-primary hover:underline text-blue-600"
           to="/auth/register"
         >
           Login

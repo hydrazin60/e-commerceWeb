@@ -3,9 +3,10 @@ import jwt from "jsonwebtoken";
 import UserModel from "../models/User.models.js";
 
 export const Register = async (req, res) => {
-  const { userName, email, password } = req.body;
   try {
-    if (!userName || !email || !password) {
+    const { UserName, email, password } = req.body;
+
+    if (!UserName || !email || !password) {
       return res.status(400).json({
         message: "All fields are required",
         success: false,
@@ -22,7 +23,7 @@ export const Register = async (req, res) => {
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await UserModel.create({
-      userName,
+      UserName,
       email,
       password: hashedPassword,
     });
@@ -31,7 +32,7 @@ export const Register = async (req, res) => {
     delete newUserData.password;
 
     return res.status(201).json({
-      message: `Welcome ${newUserData.userName} you are successfully registered !! Please Go to Login`,
+      message: `Welcome ${newUserData.UserName} you are successfully registered !! Please Go to Login`,
       success: true,
       error: false,
       data: newUserData,
@@ -39,7 +40,20 @@ export const Register = async (req, res) => {
   } catch (error) {
     console.log(`register error ${error}`);
     return res.status(500).json({
-      message: error.message || "Register failed",
+      message: `Something went wrong on Register User! Error: ${error.message}`,
+      success: false,
+      error: true,
+    });
+  }
+};
+
+export const Login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+  } catch (error) {
+    console.log(`login error ${error}`);
+    return res.status(500).json({
+      message: error.message || "Login failed",
       success: false,
       error: true,
     });

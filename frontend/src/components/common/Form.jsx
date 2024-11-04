@@ -1,4 +1,3 @@
-import { Label } from "@radix-ui/react-select";
 import React from "react";
 import { Input } from "../ui/input";
 import {
@@ -31,7 +30,7 @@ export default function CommonForm({
               type={getControlItem.type}
               id={getControlItem.name}
               value={value}
-              onchange={(e) =>
+              onChange={(e) =>
                 setFormData({
                   ...formData,
                   [getControlItem.name]: e.target.value,
@@ -72,7 +71,7 @@ export default function CommonForm({
             placeholder={getControlItem.placeholder}
             id={getControlItem.id}
             value={value}
-            onchange={(e) =>
+            onChange={(e) =>
               setFormData({
                 ...formData,
                 [getControlItem.name]: e.target.value,
@@ -90,7 +89,7 @@ export default function CommonForm({
             type={getControlItem.type}
             id={getControlItem.name}
             value={value}
-            onchange={(e) =>
+            onChange={(e) =>
               setFormData({
                 ...formData,
                 [getControlItem.name]: e.target.value,
@@ -108,7 +107,6 @@ export default function CommonForm({
         <div className="flex flex-col gap-3">
           {formControls.map((controlItem) => (
             <div key={controlItem.name} className="  grid w-full gap-1.5">
-              <lebal className="mb-1 ">{controlItem.label}</lebal>
               {renderInputsByComponnentType(controlItem)}
             </div>
           ))}

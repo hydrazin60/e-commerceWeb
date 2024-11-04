@@ -21,8 +21,8 @@ export const RegisterFormControls = [
     type: "password",
   },
   {
-    name: "password",
-    lable: "Password",
+    name: "ConformPassword",
+    lable: "ConformPassword",
     placeholder: "conform password",
     componentType: "input",
     type: "password",
