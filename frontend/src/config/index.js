@@ -5,6 +5,7 @@ export const RegisterFormControls = [
     placeholder: "Enter your user name",
     componentType: "input",
     type: "text",
+    required: true,
   },
   {
     name: "email",
@@ -12,6 +13,7 @@ export const RegisterFormControls = [
     placeholder: "Enter your email",
     componentType: "input",
     type: "email",
+    required: true,
   },
   {
     name: "password",
@@ -19,6 +21,7 @@ export const RegisterFormControls = [
     placeholder: "Enter your password",
     componentType: "input",
     type: "password",
+    required: true,
   },
   {
     name: "ConformPassword",
@@ -26,6 +29,7 @@ export const RegisterFormControls = [
     placeholder: "conform password",
     componentType: "input",
     type: "password",
+    required: true,
   },
 ];
 

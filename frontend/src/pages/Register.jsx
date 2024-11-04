@@ -18,29 +18,51 @@ export default function Register() {
   const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
-
     if (
       !formData.UserName ||
       !formData.email ||
       !formData.password ||
       !formData.ConformPassword
     ) {
-      toast.error("All fields are required");
+      toast.error("All fields are required", {
+        duration: 3000,
+        style: {
+          background: "#FF0000",
+          color: "#fff",
+        },
+      });
       return;
     }
     if (formData.password !== formData.ConformPassword) {
-      toast.error("Passwords do not match");
+      toast.error("Passwords do not match", {
+        duration: 3000,
+        style: {
+          background: "#FF0000",
+          color: "#fff",
+        },
+      });
       return;
     }
     dispatch(RegisterUseAction(formData))
       .unwrap()
       .then((res) => {
-        toast.success(res.message);
+        toast.success(res.message, {
+          duration: 3000,
+          style: {
+            background: "#06E624",
+            color: "#000",
+          },
+        });
         navigate("/auth/login");
       })
       .catch((err) => {
-        toast.error(err);
-        
+        toast.error(err, {
+          duration: 3000,
+          style: {
+            background: "#FF0000",
+            color: "#fff",
+          },
+        });
       });
   };
 
@@ -52,7 +74,7 @@ export default function Register() {
         </h1>
         <p className="mt-2">Already have an account ?</p>
         <Link
-          className="font-medium  ml-2 text-primary hover:underline text-blue-600"
+          className="font-medium  ml-2 text-primary hover:underline text-blue-500"
           to="/auth/login"
         >
           Login

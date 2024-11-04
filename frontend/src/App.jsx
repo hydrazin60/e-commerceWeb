@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Authlayout from "./components/auth/layout";
 import Login from "./pages/Login";
@@ -16,9 +16,23 @@ import ShoppingCheckout from "./pages/shopping/Checkout";
 import UserAccount from "./pages/shopping/Account";
 import CheckAuth from "./components/common/CheckAuth";
 import UnAuthPage from "./pages/unAuthPage";
+import { useDispatch, useSelector } from "react-redux";
+import { CheckAuthentication } from "./redux/authSlice";
 export default function App() {
-  const isAuthenticated = false;
-  const user = null;
+  const { isAuthenticated, user, isLoading } = useSelector(
+    (state) => state.auth
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(CheckAuthentication());
+  }, [dispatch]);
+  if (isLoading) {
+    return (
+      <div className="text-center text-4xl text-blue-700 font-bold">
+        Loading...
+      </div>
+    );
+  }
   return (
     <BrowserRouter>
       <div className="flex flex-col overflow-hidden bg-white">
