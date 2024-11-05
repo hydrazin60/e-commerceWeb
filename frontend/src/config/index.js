@@ -1,3 +1,5 @@
+import { icons } from "lucide-react";
+
 export const RegisterFormControls = [
   {
     name: "UserName",
@@ -49,3 +51,4 @@ export const LoginFormControls = [
     type: "password",
   },
 ];
+ 

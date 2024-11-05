@@ -18,6 +18,7 @@ import CheckAuth from "./components/common/CheckAuth";
 import UnAuthPage from "./pages/unAuthPage";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckAuthentication } from "./redux/authSlice";
+import { Skeleton } from "./components/ui/skeleton";
 export default function App() {
   const { isAuthenticated, user, isLoading } = useSelector(
     (state) => state.auth
@@ -29,7 +30,7 @@ export default function App() {
   if (isLoading) {
     return (
       <div className="text-center text-4xl text-blue-700 font-bold">
-        Loading...
+        <Skeleton className="w-[600px] h-[600px] bg-zinc-800 rounded-full" />
       </div>
     );
   }
