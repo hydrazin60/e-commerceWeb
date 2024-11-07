@@ -1,31 +1,3 @@
-// import React, { useRef } from "react";
-// import { Input } from "../ui/input";
-
-// export default function ProductImageUploader({
-//   file,
-//   setFile,
-//   uploadedImageUrl,
-//   setUploadedImageUrl,
-// }) {
-//   const inputRef = useRef(null);
-//   const handleImageChange = (event) => {
-//     console.log(event.target.files[0]);
-//   };
-//   return (
-//     <div className="w-full max-w-md mx-auto">
-//       <label className="text-lg font-semibold">Product Image Upload </label>
-//       <div>
-//         <Input
-//           type="file"
-//           // className="hidden"
-//           ref={inputRef}
-//           onchange={handleImageChange}
-//         />
-//       </div>
-//     </div>
-//   );
-// }
-
 import React, { useRef } from "react";
 import { Input } from "../ui/input";
 import { UploadCloudIcon, XIcon } from "lucide-react";
@@ -64,9 +36,15 @@ export default function ProductImageUploader({
       <div
         onDragOver={handleDragOver}
         onDrop={handleDropOver}
+        onClick={() => inputRef.current.click()}
         className="border-2 border-dashed rounded-lg p-4 border-green-500"
       >
-        <Input type="file" ref={inputRef} onChange={handleImageChange} />
+        <Input
+          type="file"
+          ref={inputRef}
+          onChange={handleImageChange}
+          className="hidden"
+        />
         {!file ? (
           <label
             htmlFor="image-upload"
