@@ -29,29 +29,26 @@ export default function AdminProduct() {
   const [uploadedImageUrl, setUploadedImageUrl] = React.useState("");
   const onSubmit = (e) => {
     e.preventDefault();
-    
     // Create FormData object to submit
     const formDataToSubmit = new FormData();
-  
     // Append text fields from formData to FormData
     Object.keys(formData).forEach((key) => {
       formDataToSubmit.append(key, formData[key]);
     });
-  
     // Append the uploaded image to FormData (use imageFile here)
     if (imageFile) {
       formDataToSubmit.append("image", imageFile);
     }
-  
+
     // Log the FormData object (to see the data you're sending)
     const formDataObject = {};
     formDataToSubmit.forEach((value, key) => {
       formDataObject[key] = value;
     });
-  
+
     console.log("Submitting product data:", formDataObject);
   };
-  
+
   return (
     <Fragment>
       <div className="mb-5 w-full flex justify-end ">
