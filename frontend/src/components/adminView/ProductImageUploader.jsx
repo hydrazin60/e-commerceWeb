@@ -51,7 +51,10 @@ export default function ProductImageUploader({
             className={`flex flex-col items-center justify-center h-32 cursor-pointer`}
           >
             <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
-            <span>Drag & drop or click to upload image</span>
+
+            <span className="font-semibold text-red-500">
+              Drag & drop or click to upload image
+            </span>
           </label>
         ) : (
           <div className="relative">
