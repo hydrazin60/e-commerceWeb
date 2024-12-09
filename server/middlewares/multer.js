@@ -1,6 +1,8 @@
 import multer from "multer";
 const MAX_SIZE = 1024 * 1024 * 5;
-const upload = multer({
+const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
+
+const uploadimage = multer({
   storage: multer.memoryStorage(),
   limits: {
     fileSize: MAX_SIZE,
@@ -91,4 +93,4 @@ const uploadMediaBoth = multer({
   },
 });
 
-export { upload, uploadVideo, uploadMediaBoth };
+export { uploadimage, uploadVideo, uploadMediaBoth };

@@ -3,15 +3,17 @@ import path from "path";
 
 const parser = new DataUriParser();
 
-const getDataUri = (filepath) => {
+const getDataUri = (file) => {
   try {
-    if (!filepath || !filepath.originalname || !filepath.buffer) {
-      throw new Error("File not found");
+    if (!file || !file.originalname || !file.buffer) {
+      throw new Error("File data is missing or incomplete");
     }
-    const ext = path.extname(filepath.originalname).toString();
-    return parser.format(ext, filepath.buffer).content;
+
+    const ext = path.extname(file.originalname).toString();
+ 
+    return parser.format(ext, file.buffer).content;
   } catch (err) {
-    console.log(`Data Uri error: ${err.message}`);
+    console.log(`Data URI error: ${err.message}`);
     throw err;
   }
 };

@@ -8,7 +8,11 @@ const ProductSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  finalProce: {
+  salePrice: {
+    type: Number,
+    required: true,
+  },
+  totalStock: {
     type: Number,
     required: true,
   },
@@ -21,13 +25,30 @@ const ProductSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: true,
+    enum: ["Men", "Women", "Kids", "Accessories", "kitchen", "electronics"],
   },
   brand: {
     type: String,
+    enum: [
+      "Nike",
+      "Adidas",
+      "Puma",
+      "Levi's",
+      "Zara",
+      "H&M",
+      "Reebok",
+      "Gucci",
+      "Versace",
+      "Chanel",
+      "Prada",
+      "Louis Vuitton",
+    ],
   },
   image: {
-    type: [String],
+    type: String,
     required: true,
   },
 });
+
+const ProductModel = mongoose.model("Product", ProductSchema);
+export default ProductModel;

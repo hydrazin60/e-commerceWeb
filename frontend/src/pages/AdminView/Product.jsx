@@ -67,7 +67,9 @@ export default function AdminProduct() {
       >
         <SheetContent side="right" className="overflow-y-scroll">
           <SheetHeader>
-            <SheetTitle>Add New Product</SheetTitle>
+            <SheetTitle className="text-xl font-bold text-green-600">
+              Add New Product
+            </SheetTitle>
           </SheetHeader>
           <ProductImageUploader
             file={imageFile}

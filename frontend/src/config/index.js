@@ -51,17 +51,17 @@ export const LoginFormControls = [
     type: "password",
   },
 ];
- 
+
 export const addProductFormElements = [
   {
-    label: "Title",
-    name: "title",
+    label: "product Name",
+    name: "productName",
     componentType: "input",
     type: "text",
-    placeholder: "Enter product title",
+    placeholder: "Enter product Name",
   },
   {
-    label: "Description",
+    label: "description",
     name: "description",
     componentType: "textarea",
     placeholder: "Enter product description",
@@ -75,7 +75,8 @@ export const addProductFormElements = [
       { id: "women", label: "Women" },
       { id: "kids", label: "Kids" },
       { id: "accessories", label: "Accessories" },
-      { id: "footwear", label: "Footwear" },
+      { id: "kitchen", label: "kitchen" },
+      { id: "electronics", label: "electronics" },
     ],
   },
   {
@@ -89,6 +90,14 @@ export const addProductFormElements = [
       { id: "levi", label: "Levi's" },
       { id: "zara", label: "Zara" },
       { id: "h&m", label: "H&M" },
+      { id: "reebok", label: "Reebok" },
+      { id: "gucci", label: "Gucci" },
+      { id: "versace", label: "Versace" },
+      { id: "chanel", label: "Chanel" },
+      { id: "prada", label: "Prada" },
+      { id: "louis-vuitton", label: "Louis Vuitton" },
+      { id: "gucci", label: "Gucci" },
+      { id: "versace", label: "Versace" },
     ],
   },
   {
@@ -111,5 +120,12 @@ export const addProductFormElements = [
     componentType: "input",
     type: "number",
     placeholder: "Enter total stock",
+  },
+  {
+    label: "Any Offer",
+    name: "offer",
+    componentType: "input",
+    type: "number",
+    placeholder: "Enter offer (optional)",
   },
 ];

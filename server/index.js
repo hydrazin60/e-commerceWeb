@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import AuthRouter from "./routes/Auth.routes.js";
+import AdminRouter from "./routes/AdminRoute/Admin.routes.js";
 
 dotenv.config();
 const app = express();
@@ -28,6 +29,7 @@ app.use(
 app.use(cookieParser());
 
 app.use("/e~commerce/api/v1/jbn/auth", AuthRouter);
+app.use("/e~commerce/api/v1/jbn/admin", AdminRouter);
 
 mongoose
   .connect(process.env.MONGO_URI)
